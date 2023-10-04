@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'AGENT-1' } }
+    agent { node { label 'agent1' } }
     options {
         ansiColor('xterm')
     }
@@ -8,7 +8,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh'''
-                    cd SESSION-1
+                    cd session1
                     ls -ltr
                     pwd
                     terraform init
@@ -18,7 +18,7 @@ pipeline {
         stage('Plan') {
             steps {
                 sh'''
-                    cd SESSION-1
+                    cd session1
                     ls -ltr
                     pwd
                     terraform plan
@@ -35,7 +35,7 @@ pipeline {
             steps{
                 
                 sh '''
-                    cd SESSION-1
+                    cd session1
                     ls -ltr
                     pwd
                     terraform apply -auto-approve
